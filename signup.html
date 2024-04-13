@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign up</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <input type="checkbox" name="" id="toggler">
+        <label for="toggler" class="fas fa-bars"></label>
+        <a href="#" class="logo">Lilas flowers<span>.</span></a>
+        <nav class="navbar">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#products">Products</a>
+            <a href="#review">Review</a>
+            <a href="#contact">Contact</a>
+        </nav>
+        <div>
+            <div class="icons">
+                <a href="#" class="fas fa-heart"></a>
+                <a href="#" class="fas fa-shopping-cart"></a>
+                <a href="#" class="fas fa-user"></a>
+            </div>
+    </header>
+    <div class="Lilas-flowers-text">F<span>lower </span>F<span>usion</span></div>
+    <section class="login-section">
+        <form class="signup-form">
+            <div>
+                <h2 class="title">Sign up</h2>
+                <!-- <div class="row">
+                    <div class="box">
+                        <input type="text" class="field" name="first_name" id="First_name" required>
+                        <label for="First_name">First Name</label>
+                    </div>
+                    <div class="box">
+                        <input type="text" class="field" name="last_name" id="Last_Name" required>
+                        <label for="Last_Name">Last Name</label>
+                    </div>
+                </div> -->
+                <div class="row">
+                    <div class="box">
+                        <input type="text" class="field" name="email" id="Address" required>
+                        <label for="Address">Email Address</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="box">
+                        <input type="text" class="field" name="username" id="Username" required>
+                        <label for="Username">Username</label>
+                    </div>
+                    <!-- <div class="box">
+                        <input type="text" class="field" name="phone" id="phone" required>
+                        <label for="phone">Phone</label>
+                    </div> -->
+                </div>
+                <div class="row">
+                    <div class="box">
+                        <input type="password" class="field" name="password" id="password" required>
+                        <input type="checkbox" id="hide" class="hide">
+                        <label for="password">Password</label>
+                    </div>
+                </div>
+                <input class="submit" type="submit" value="Sign up">
+            </div>
+            <div class="forget">
+                <h5 id="forget">Confirm Your Informations </h5>
+            </div>
+        </form>
+
+
+    </section>
+
+    <div class="Lilas-flowers-text"></div>
+    <section class="footer">
+        <div class="box-container">
+            <div class="box">
+                <h3>quick links</h3>
+                <a href="#">home</a>
+                <a href="#">about</a>
+                <a href="#">products</a>
+                <a href="#">review</a>
+                <a href="#">contact</a>
+            </div>
+            <div class="box">
+                <h3>Extra links</h3>
+                <a href="#">my account</a>
+                <a href="#">my order</a>
+                <a href="#">my favorites</a>
+            </div>
+            <div class="box">
+                <h3>Locations</h3>
+                <a href="#">Blida</a>
+                <a href="#">Algiers</a>
+                <a href="#">oran</a>
+            </div>
+
+            <div class="box">
+                <h3>contact info</h3>
+                <a href="#">+213-556-342-83</a>
+                <a href="#">Lilasflowers@gmail.com</a>
+                <a href="#">blida, Algeria - 9000</a>
+
+
+            </div>
+        </div>
+    </section>
+    <script>
+        const signupForm = document.querySelector('.signup-form');
+
+        signupForm.addEventListener('submit', (event) => {
+            event.preventDefault(); // Prevent default form submission
+
+            const email = document.getElementById('Address').value;
+            const username = document.getElementById('Username').value;
+            const password = document.getElementById('password').value;
+
+            const newUser = { email, username, password };
+
+            // Get the existing users from local storage if present, or initialize an empty array
+            const storedUsers = JSON.parse(localStorage.getItem('users')) || [];
+
+            // Add the new user to the array
+            storedUsers.push(newUser);
+
+            // Store the updated array back in local storage
+            localStorage.setItem('users', JSON.stringify(storedUsers));
+
+            alert('Sign up successful!');
+            console.log("sign up successful");
+
+            // Redirect to the index page
+            window.location.href = 'index.html';
+        });
+    </script>
+</body>
+
+</html>

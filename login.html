@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <input type="checkbox" name="" id="toggler">
+        <label for="toggler" class="fas fa-bars"></label>
+        <a href="#" class="logo">Lilas Flowers<span>.</span></a>
+        <nav class="navbar">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#products">Products</a>
+            <a href="#review">Review</a>
+            <a href="#contact">Contact</a>
+        </nav>
+        <div>
+            <div class="icons">
+                <a href="#" class="fas fa-heart"></a>
+                <a href="#" class="fas fa-shopping-cart"></a>
+                <a href="#" class="fas fa-user"></a>
+            </div>
+    </header>
+    <div class="Lilas-flowers-text"></div>
+
+    <section class="login-section">
+        <form class="login-form" method="post">
+            <div>
+                <h2 class="title">LOG In</h2>
+                <div class="box">
+                    <input type="text" name="email" class="field" id="login" required>
+                    <label for="login">Email</label>
+                </div>
+                <div class="box">
+                    <input type="password" class="field" name="password" id="password" required>
+                    <label for="password">Password</label>
+                </div>
+                <input class="submit" type="submit" value="Login">
+            </div>
+            <div class="forget">
+                <h5 id="forget">Dont have an account? <a id="click-here" href="signup.html">Sign Up </a> </h5>
+            </div>
+        </form>
+    </section>
+    <div class="Lilas-flowers-text"></div>
+    <section class="footer">
+        <div class="box-container">
+            <div class="box">
+                <h3>quick links</h3>
+                <a href="#">home</a>
+                <a href="#">about</a>
+                <a href="#">products</a>
+                <a href="#">review</a>
+                <a href="#">contact</a>
+            </div>
+            <div class="box">
+                <h3>Extra links</h3>
+                <a href="#">my account</a>
+                <a href="#">my order</a>
+                <a href="#">my favorites</a>
+            </div>
+            <div class="box">
+                <h3>Locations</h3>
+                <a href="#">Blida</a>
+                <a href="#">Algiers</a>
+                <a href="#">oran</a>
+            </div>
+
+            <div class="box">
+                <h3>contact info</h3>
+                <a href="#">+213-556-342-83</a>
+                <a href="#">Lilasflowers@gmail.com</a>
+                <a href="#">blida, Algeria - 9000</a>
+
+
+            </div>
+        </div>
+
+    </section>
+    <script>
+        const loginForm = document.querySelector('.login-form');
+
+        loginForm.addEventListener('submit', (event) => {
+            event.preventDefault(); // Prevent default form submission
+
+            const email = document.getElementById('login').value;
+            const password = document.getElementById('password').value;
+
+            // Get the stored users from local storage
+            const storedUsers = JSON.parse(localStorage.getItem('users')) || [];
+
+            const validUser = storedUsers.find(user => user.email === email && user.password === password);
+
+            if (validUser) {
+                // Login successful!
+                alert('Login successful!');
+                console.log("sign in succefull");
+                // Optionally store user data in session storage for the current session
+                sessionStorage.setItem('currentUser', JSON.stringify(validUser));
+
+                // Redirect to the index page
+                window.location.href = 'index.html';
+            } else {
+                // Login failed
+                alert('Invalid email or password.');
+            }
+        });
+    </script>
+</body>
+
+</html>
